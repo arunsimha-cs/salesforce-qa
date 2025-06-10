@@ -25,8 +25,8 @@ jobs:
         with: 
           organization: sush
           projectKey: sush1
-          codeScanUrl: https://6d7f-106-222-229-214.ngrok-free.app/
-          login: squ_3a8af611bf6c9afabf3875fd5b6d7e4f7cf10d21
+          codeScanUrl: https://preview.codescan.io/
+          login: squ_cd5fb9feeeadd2e8fdab8352be69aaa0ae4e73d5
           generateSarifFile: true 
           failOnRedQualityGate: true 
       - name: Run Codescan On PR 
@@ -35,8 +35,8 @@ jobs:
         with: 
           organization: sush
           projectKey: sush1
-          codeScanUrl: https://6d7f-106-222-229-214.ngrok-free.app/
-          login: squ_3a8af611bf6c9afabf3875fd5b6d7e4f7cf10d21
+          codeScanUrl: https://preview.codescan.io/
+          login: squ_cd5fb9feeeadd2e8fdab8352be69aaa0ae4e73d5
           scanChangedFilesOnly: true 
           generateSarifFile: true 
           failOnRedQualityGate: true 
