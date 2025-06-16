@@ -1,5 +1,5 @@
-public Class Aaaaa
-{//conflict test
+public Class Aaaaa{
+//conflict test
 //testetsg
 //Added test comment
 public Account createAccount(String name)  //method to create account
