@@ -24,7 +24,7 @@ jobs:
         uses: codescan-io/codescan-scanner-action@1.6
         with: 
           organization: sush
-          projectKey: va-test-report
+          projectKey: va-test-report-sample
           codeScanUrl: https://preview.codescan.io/
           login: squ_cd5fb9feeeadd2e8fdab8352be69aaa0ae4e73d5
           generateSarifFile: false 
@@ -34,7 +34,7 @@ jobs:
         uses: codescan-io/codescan-scanner-action@1.6
         with: 
           organization: sush
-          projectKey: va-test-report
+          projectKey: va-test-report-sample
           codeScanUrl: https://preview.codescan.io/
           login: squ_cd5fb9feeeadd2e8fdab8352be69aaa0ae4e73d5
           scanChangedFilesOnly: true 
