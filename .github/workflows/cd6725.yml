@@ -24,7 +24,7 @@ jobs:
           organization: sush
           projectKey: cd-6610-github
           codeScanUrl: https://test.codescan.io/
-          login: squ_cd5fb9feeeadd2e8fdab8352be69aaa0ae4e73d5
+          login: squ_f0774d742908b4f1e45265a5c0d108f92395b28c
           generateSarifFile: false 
           failOnRedQualityGate: false 
       - name: Run Codescan On PR 
@@ -34,7 +34,7 @@ jobs:
           organization: sush
           projectKey: cd-6610-github
           codeScanUrl: https://test.codescan.io/
-          login: squ_cd5fb9feeeadd2e8fdab8352be69aaa0ae4e73d5
+          login: squ_f0774d742908b4f1e45265a5c0d108f92395b28c
           scanChangedFilesOnly: true 
           generateSarifFile: false 
           failOnRedQualityGate: false 
