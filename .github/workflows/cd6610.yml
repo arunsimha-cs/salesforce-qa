@@ -26,7 +26,7 @@ jobs:
           codeScanUrl: https://test.codescan.io/
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
           generateSarifFile: false 
-          failOnRedQualityGate: false 
+          failOnRedQualityGate: true 
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
         uses: codescan-io/codescan-scanner-action@prerelease-test
@@ -37,7 +37,7 @@ jobs:
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
           scanChangedFilesOnly: true 
           generateSarifFile: false 
-          failOnRedQualityGate: false 
+          failOnRedQualityGate: true 
           args: | 
             sonar.pullrequest.branch=${{github.head_ref}} 
             sonar.pullrequest.base=${{github.base_ref}} 
