@@ -25,7 +25,7 @@ jobs:
           projectKey: cd-6610-github1
           codeScanUrl: https://test.codescan.io/
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
-          generateSarifFile: true 
+          generateSarifFile: false 
           failOnRedQualityGate: false 
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
@@ -36,7 +36,7 @@ jobs:
           codeScanUrl: https://test.codescan.io/
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
           scanChangedFilesOnly: true 
-          generateSarifFile: true 
+          generateSarifFile: false 
           failOnRedQualityGate: false 
           args: | 
             sonar.pullrequest.branch=${{github.head_ref}} 
