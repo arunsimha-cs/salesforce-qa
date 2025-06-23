@@ -1,7 +1,7 @@
 name: CI
 env:
   SONAR_SCANNER_VERSION: 5.0.1.3006
-  SONAR_SCANNER_OPTS: "-Dsonar.scanner.skipJreProvisioning=true"
+  SONAR_SCANNER_OPTS: -Dsonar.scanner.skipJreProvisioning=true
 on: 
   push: 
     branches: main
