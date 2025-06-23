@@ -25,8 +25,7 @@ jobs:
           projectKey: cd-6610-github3
           codeScanUrl: https://test.codescan.io/
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
-          args: |
-             -Dsonar.scanner.skipJreProvisioning=true
+          sonar.scanner.skipJreProvisioning: true
           generateSarifFile: false 
           failOnRedQualityGate: true 
          
