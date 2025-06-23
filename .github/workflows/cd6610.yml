@@ -28,8 +28,7 @@ jobs:
           generateSarifFile: false 
           failOnRedQualityGate: true 
           args: |
-            -Dsonar.scanner.skipJreProvisioning: true
-            sonar.scanner.skipJreProvisioning: true
+            -Dsonar.scanner.skipJreProvisioning=true
           
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
