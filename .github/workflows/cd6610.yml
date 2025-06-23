@@ -4,8 +4,6 @@ on:
     branches: main
   pull_request: 
     branches: '*'
-env:
-    SONAR_SCANNER_OPTS: sonar.scanner.skipJreProvisioning=true
 jobs: 
   build: 
     runs-on: ubuntu-latest
@@ -29,8 +27,8 @@ jobs:
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
           generateSarifFile: false 
           failOnRedQualityGate: true 
-          args: 
-            sonar.scanner.skipJreProvisioning=true
+          args: |
+            sonar.scanner.skipJreProvisioning: true
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
         uses: codescan-io/codescan-scanner-action@prerelease-test
