@@ -20,8 +20,6 @@ jobs:
       - name: Run Codescan On Push 
         if: github.event_name == 'push' 
         uses: codescan-io/codescan-scanner-action@prerelease-test
-        env:
-          SONAR_SCANNER_OPTS: "-Dsonar.scanner.skipJreProvisioning=true"
         with: 
           organization: sush
           projectKey: cd-6610-github3
@@ -29,7 +27,9 @@ jobs:
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
           generateSarifFile: false 
           failOnRedQualityGate: true 
-          -Dsonar.scanner.skipJreProvisioning: true
+          args: |
+            -Dsonar.scanner.skipJreProvisioning: true
+            sonar.scanner.skipJreProvisioning: true
           
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
