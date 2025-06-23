@@ -20,6 +20,8 @@ jobs:
       - name: Run Codescan On Push 
         if: github.event_name == 'push' 
         uses: codescan-io/codescan-scanner-action@prerelease-test
+        env:
+          SONAR_SCANNER_OPTS: "-Dsonar.scanner.skipJreProvisioning=true"
         with: 
           organization: sush
           projectKey: cd-6610-github3
