@@ -27,7 +27,7 @@ jobs:
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
           generateSarifFile: false 
           failOnRedQualityGate: true 
-          args: |
+          args: 
             sonar.scanner.skipJreProvisioning=true
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
