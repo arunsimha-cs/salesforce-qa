@@ -1,6 +1,4 @@
 name: CI
-env:
-  SONAR_SCANNER_OPTS: -Dsonar.scanner.skipJreProvisioning=true
 on: 
   push: 
     branches: main
@@ -27,10 +25,11 @@ jobs:
           projectKey: cd-6610-github3
           codeScanUrl: https://test.codescan.io/
           login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
+          args: |
+             -Dsonar.scanner.skipJreProvisioning=true
           generateSarifFile: false 
           failOnRedQualityGate: true 
-          args: |
-            sonar.scanner.skipJreProvisioning=true
+         
           
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
