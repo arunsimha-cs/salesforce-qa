@@ -5,7 +5,7 @@ on:
   pull_request: 
     branches: '*'
 env:
-    SONAR_SCANNER_OPTS: "-Dsonar.scanner.skipJreProvisioning=true"
+    SONAR_SCANNER_OPTS: -Dsonar.scanner.skipJreProvisioning=true
 jobs: 
   build: 
     runs-on: ubuntu-latest
