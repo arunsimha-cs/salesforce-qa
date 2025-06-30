@@ -19,7 +19,7 @@ jobs:
             restore-keys: ${{ runner.os }}-sonar 
       - name: Run Codescan On Push 
         if: github.event_name == 'push' 
-        uses: codescan-io/codescan-scanner-action@prerelease-test
+        uses: codescan-io/codescan-scanner-action@1.6
         with: 
           organization: sush
           projectKey: cd-6610-github3
@@ -32,7 +32,7 @@ jobs:
           
       - name: Run Codescan On PR 
         if: github.event_name == 'pull_request' 
-        uses: codescan-io/codescan-scanner-action@prerelease-test
+        uses: codescan-io/codescan-scanner-action@1.6
         with: 
           organization: sush
           projectKey: cd-6610-github3
