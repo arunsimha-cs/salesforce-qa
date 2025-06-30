@@ -44,6 +44,7 @@ jobs:
           generateSarifFile: false 
           failOnRedQualityGate: true 
           args: | 
+            sonar.verbose=true
             sonar.scanner.skipJreProvisioning=true
             sonar.pullrequest.branch=${{github.head_ref}} 
             sonar.pullrequest.base=${{github.base_ref}} 
