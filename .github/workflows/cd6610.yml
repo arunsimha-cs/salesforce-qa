@@ -45,11 +45,25 @@ jobs:
           scanChangedFilesOnly: false 
           generateSarifFile: false 
           failOnRedQualityGate: true 
-          args: | 
-            sonar.scanner.skipJreProvisioning=true
+          args: |
+            sonar.verbose=true
+            sonar.token=${{ secrets.AUTORABIT_CODESCAN_TOKEN }}
+            sonar.scm.provider=git
+            sonar.scm.disabled=false
+            sonar.pullrequest.key=${{github.event.number}} 
             sonar.pullrequest.branch=${{github.head_ref}} 
             sonar.pullrequest.base=${{github.base_ref}} 
-            sonar.pullrequest.key=${{github.event.number}} 
+            sonar.projectName=${{ github.event.repository.name }}
+            sonar.java.binaries=target
+            sonar.inclusions=${{ steps.changed-files.outputs.all_changed_files }}
+            sonar.exclusions=${{ vars.CODESCAN_SONAR_EXCLUSIONS }},${{ vars.CODESCAN_PROJECT_EXCLUSIONS }},${{ vars.CODESCAN_PROJECT_EXCLUSIONS }}
+            sonar.analysisCache.enabled=false
+            sf.sfmeta.suffixes=${{ vars.CODESCAN_SF_SFMETA_SUFFIXES }}
+            codescan.suppressUnitTestViolations=false
+            codescan.pullRequest.filterIssuesByChangedLines=${{ vars.CODESCAN_PR_CHANGEDLINES }}
+            codescan.comparison.branches=${{ vars.CODESCAN_COMPARISON_BRANCHES }}
+            codescan.cloud.packageTypes=${{ vars.CODESCAN_CLOUD_PACKAGETYPES}}
+
       - name: Upload SARIF file 
         uses: github/codeql-action/upload-sarif@v3 
         with: 
