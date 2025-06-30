@@ -1,4 +1,8 @@
 name: CI
+env:
+  SONAR_VERBOSE: true
+  SONAR_SCANNER_VERSION: 5.0.1.3006
+  CODESCAN_SARIF_NAME: codescan.sarif
 on: 
   push: 
     branches: main
