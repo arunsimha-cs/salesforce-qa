@@ -12,4 +12,5 @@ public with sharing class ChangePasswordController21 {
     
    	public ChangePasswordController() {}
     public ChangePasswordController21() {}
+    public ChangePasswordController22() {}
 }
