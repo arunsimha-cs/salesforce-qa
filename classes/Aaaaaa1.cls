@@ -7,7 +7,8 @@ public Account createAccount(String name)  //method to create account
 Account a01231111112331= new Account();
 Account a0123111111233= new Account();
 Account a0123111111= new Account(); //commentsource line2 modify1
-a0123111111.Name = name; //line3
+a0123111111233.Name = name;
+a0123111111.Name = name1; //line3
 return a0123111111; //fffff src modifylast1julky22saifdfsffsdmfbdsjhbdjgfbgjfdbgkjfdgsdgfdgd
 //gfdgfdgfgmds gbfhjdbgfhjdbghjfdbghfbdhjgb
 }
