@@ -54,7 +54,7 @@ jobs:
             sonar.java.binaries=target
             sonar.analysisCache.enabled=false
             codescan.suppressUnitTestViolations=false
-            codescan.pullRequest.filterIssuesByChangedLines=${{ vars.CODESCAN_PR_CHANGEDLINES }}
+            codescan.pullRequest.filterIssuesByChangedLines=${{ vars.CODESCAN_PR_CHANGEDLINES_PROD }}
             codescan.comparison.branches=${{ vars.CODESCAN_COMPARISON_BRANCHES }}
             codescan.cloud.packageTypes=${{ vars.CODESCAN_CLOUD_PACKAGETYPES}}
       - name: Upload SARIF file 
