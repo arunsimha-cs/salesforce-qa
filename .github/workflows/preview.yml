@@ -1,0 +1,68 @@
+name: CI
+env:
+  SONAR_SCANNER_VERSION: 5.0.1.3006
+on: 
+  push: 
+    branches: main
+  pull_request: 
+    types: [opened, synchronize, reopened]
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository 
+        uses: actions/checkout@v4
+      - name: Cache files 
+        uses: actions/cache@v4
+        with: 
+            path: | 
+                ~/.sonar 
+            key: ${{ runner.os }}-sonar 
+            restore-keys: ${{ runner.os }}-sonar 
+      - name: Run Codescan On Push 
+        if: github.event_name == 'push' 
+        uses: codescan-io/codescan-scanner-action@1.6
+        with: 
+          organization: sush
+          projectKey: aa-preview
+          codeScanUrl: https://test.codescan.io/
+          login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
+          generateSarifFile: false 
+          failOnRedQualityGate: false 
+          args: |
+            sonar.scanner.skipJreProvisioning=true
+          
+      - name: Run Codescan On PR 
+        if: github.event_name == 'pull_request' 
+        uses: codescan-io/codescan-scanner-action@1.6
+        with: 
+          organization: sush
+          projectKey: aa-preview
+          codeScanUrl: https://test.codescan.io/
+          login: squ_6f58e0b8e08435553db7d8165df2fbf9af1ab812
+          scanChangedFilesOnly: false 
+          generateSarifFile: false 
+          failOnRedQualityGate: false 
+          args: | 
+            sonar.verbose=true
+            sonar.scm.provider=git
+            sonar.scm.disabled=false
+            sonar.pullrequest.key=${{github.event.number}} 
+            sonar.pullrequest.branch=${{github.head_ref}} 
+            sonar.pullrequest.base=${{github.base_ref}} 
+            sonar.projectName=${{ github.event.repository.name }}
+            sonar.java.binaries=target
+            sonar.analysisCache.enabled=false
+            codescan.suppressUnitTestViolations=false
+            codescan.pullRequest.filterIssuesByChangedLines=${{ vars.CODESCAN_PR_CHANGEDLINES }}
+            codescan.comparison.branches=${{ vars.CODESCAN_COMPARISON_BRANCHES }}
+            codescan.cloud.packageTypes=${{ vars.CODESCAN_CLOUD_PACKAGETYPES}}
+      - name: Upload SARIF file 
+        uses: github/codeql-action/upload-sarif@v3 
+        with: 
+          sarif_file: codescan.sarif 
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: codescan.sarif
+          path: codescan.sarif
