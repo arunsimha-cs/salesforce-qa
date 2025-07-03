@@ -54,9 +54,9 @@ jobs:
             sonar.java.binaries=target
             sonar.analysisCache.enabled=false
             codescan.suppressUnitTestViolations=false
-            codescan.pullRequest.filterIssuesByChangedLines=false
+            codescan.pullRequest.filterIssuesByChangedLines=${{ vars.CODESCAN_PR_CHANGEDLINES_PROD }}
             codescan.comparison.branches=false
-            codescan.cloud.packageTypes=${{ vars.CODESCAN_CLOUD_PACKAGETYPES}}
+            codescan.cloud.packageTypes=${{ vars.CODESCAN_CLOUD_PACKAGETYPES }}
       - name: Upload SARIF file 
         uses: github/codeql-action/upload-sarif@v3 
         with: 
