@@ -4,6 +4,8 @@
 global with sharing class CommunitiesLoginController {
 
     global CommunitiesLoginController () {}
+
+ global CommunitiesLoginController () {}
     
     // Code we will invoke on page load.
     global PageReference forwardToAuthPage() {
