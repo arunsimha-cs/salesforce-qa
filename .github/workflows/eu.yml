@@ -1,6 +1,4 @@
 name: eu
-env:
-  SONAR_SCANNER_VERSION: 5.0.1.3006
 on: 
   push: 
     branches: master
@@ -24,7 +22,7 @@ jobs:
         uses: codescan-io/codescan-scanner-action@prerelease-test
         with: 
           organization: test-arun
-          projectKey: gh-actions-v2
+          projectKey: gh-actions-v2-1
           codeScanUrl: https://app-eu.codescan.io/
           login: squ_450b29fd3aaabe229a82c08e83bdbd36a97be16c
           generateSarifFile: false 
@@ -37,7 +35,7 @@ jobs:
         uses: codescan-io/codescan-scanner-action@prerelease-test
         with: 
           organization: test-arun
-          projectKey: gh-actions-v2
+          projectKey: gh-actions-v2-1
           codeScanUrl: https://app-eu.codescan.io/
           login: squ_450b29fd3aaabe229a82c08e83bdbd36a97be16c
           scanChangedFilesOnly: false 
