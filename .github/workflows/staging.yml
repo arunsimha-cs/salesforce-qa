@@ -23,7 +23,7 @@ jobs:
         if: github.event_name == 'push' 
         uses: codescan-io/codescan-scanner-action@1.6
         with: 
-          organization: test-a
+          organization: test-a-1
           projectKey: test-org-githubactions
           codeScanUrl: https://staging.codescan.io/
           login: squ_6da7ffff6d9c20d5c3e94508e9acc2a6967b5c6d
@@ -36,7 +36,7 @@ jobs:
         if: github.event_name == 'pull_request' 
         uses: codescan-io/codescan-scanner-action@1.6
         with: 
-          organization: test-a
+          organization: test-a-1
           projectKey: test-org-githubactions
           codeScanUrl: https://staging.codescan.io/
           login: squ_6da7ffff6d9c20d5c3e94508e9acc2a6967b5c6d
